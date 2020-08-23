@@ -8,11 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.annotations.findby.How;
 
 public class MainActionFlow {
 
-	@FindBy(xpath = "//*[@id=\"username\"]")
+	public WebDriver driver;
+
+	@FindBy(how = How.XPATH, using = "//*[@id=\"username\"]")
 	public WebElement UserNamePath;
+
 	@FindBy(xpath = "//*[@id=\"submit-btn\"]")
 	public WebElement Mc_Next;
 	@FindBy(xpath = "//*[@id=\"password\"]")
@@ -20,15 +24,13 @@ public class MainActionFlow {
 	@FindBy(xpath = "//*[@id=\"submit-btn\"]")
 	public WebElement LoginPath;
 
-	public WebDriver driver;
-
-	String BaseUrl  = "https://mc.s10.exacttarget.com/";
-	//String UserId   = "Qa Login";
-	//String Password = "Password6^";
-	String NewName = "IPL 2020: Mahendra Singh Dhoni And Chennai Super Kings to Arrive in UAE Early For IPL 13";
+	// String UserId = "Qa Login";
+	// String Password = "Password6^";
+	// String NewName = "IPL 2020: Mahendra Singh Dhoni And Chennai Super Kings to
+	// Arrive in UAE Early For IPL 13";
 
 	public void Launch_Browser() throws InterruptedException {
-
+		String BaseUrl = "https://mc.s10.exacttarget.com/";
 		System.out.println("Launching Started .......... ");
 		// SS.sendMail();
 
@@ -41,24 +43,22 @@ public class MainActionFlow {
 		driver.manage().window().maximize();
 		TimeUnit.SECONDS.sleep(5);
 
-		System.out.println("Title Of the Website "+title);
+		System.out.println("Title Of the Website " + title);
 
 		TimeUnit.SECONDS.sleep(5);
-		//driver.close();
-		//System.out.println("Driver Closed");
+		// driver.close();
+		// System.out.println("Driver Closed");
 
 	}
-	
-	public void Enter_UserName_and_Password(String UserName , String Password) throws InterruptedException
-	{
+
+	public void Enter_UserName_and_Password(String UserName, String Password) throws InterruptedException {
 		System.out.println("MainAction.Enter_Username_password.........");
-		System.out.println("MainAction.UserName"+UserName);
-		
-				
+		System.out.println("MainAction.UserName" + UserName);
+
 		WebElement UN = driver.findElement(By.xpath("//*[@id=\"username\"]"));
 		UN.sendKeys(UserName);
 		System.out.println("Entered UserName");
-		
+
 		WebElement UN_Next_Button = driver.findElement(By.xpath("//*[@id=\"submit-btn\"]"));
 		UN_Next_Button.click();
 		TimeUnit.SECONDS.sleep(5);
@@ -75,11 +75,10 @@ public class MainActionFlow {
 		Login_Button.click();
 		System.out.println("Click Login button");
 		TimeUnit.SECONDS.sleep(5);
-		
+
 	}
-	
-	public void Quit_Browser()
-	{
+
+	public void Quit_Browser() {
 		driver.close();
 		System.out.println("Quitting the Browser............");
 	}
