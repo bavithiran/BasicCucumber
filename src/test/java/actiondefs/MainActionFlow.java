@@ -2,10 +2,12 @@ package actiondefs;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
+
+import net.serenitybdd.core.annotations.findby.FindBy;
 
 public class MainActionFlow {
 
@@ -52,17 +54,27 @@ public class MainActionFlow {
 		System.out.println("MainAction.Enter_Username_password.........");
 		System.out.println("MainAction.UserName"+UserName);
 		
-		UserNamePath.sendKeys(UserName);
-		TimeUnit.SECONDS.sleep(1);
+				
+		WebElement UN = driver.findElement(By.xpath("//*[@id=\"username\"]"));
+		UN.sendKeys(UserName);
+		System.out.println("Entered UserName");
 		
-		Mc_Next.click();
+		WebElement UN_Next_Button = driver.findElement(By.xpath("//*[@id=\"submit-btn\"]"));
+		UN_Next_Button.click();
 		TimeUnit.SECONDS.sleep(5);
-		
-		PasswordPath.sendKeys(Password);
-		TimeUnit.SECONDS.sleep(1);
-		
-		LoginPath.click();
-		TimeUnit.SECONDS.sleep(8);
+		System.out.println("UserName Next button");
+
+		// Enter Password
+		WebElement PW = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+		PW.sendKeys(Password);
+		TimeUnit.SECONDS.sleep(5);
+		System.out.println("Password given Successfully");
+
+		// Click Login
+		WebElement Login_Button = driver.findElement(By.xpath("//*[@id=\"submit-btn\"]"));
+		Login_Button.click();
+		System.out.println("Click Login button");
+		TimeUnit.SECONDS.sleep(5);
 		
 	}
 	
