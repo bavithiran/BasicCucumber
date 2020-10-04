@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.annotations.findby.How;
@@ -13,6 +15,7 @@ import net.serenitybdd.core.annotations.findby.How;
 public class MainActionFlow {
 
 	public WebDriver driver;
+	
 
 	@FindBy(how = How.XPATH, using = "//*[@id=\"username\"]")
 	public WebElement UserNamePath;
@@ -82,5 +85,44 @@ public class MainActionFlow {
 		driver.close();
 		System.out.println("Quitting the Browser............");
 	}
+	
+	public void BU_Arrow_Click()
+	{
+		WebElement ArrowClick = driver.findElement(By.xpath("//span[@class=\"arrow visible\"]"));
+		ArrowClick.click();
+	}
+	
+	public void ExactBu_Click(String BUName)
+	{
+		WebElement BuClick = driver.findElement(By.xpath("//li[@role=\"option\"]//div[text()='"+BUName+"']//.."));
+		BuClick.click();
+	}
+	
+	public void Wait_Custom(String Seconds) throws InterruptedException
+	{
+		int i=Integer.parseInt(Seconds);  
+		TimeUnit.SECONDS.sleep(i);
+	}
+	
+	public void Main_JourneyBuilder()
+	{
+		WebElement MainJourneyIcon = driver.findElement(By.xpath("//span[@class=\"mc-app-name\"][text()=\"Journey\"]"));
+		MainJourneyIcon.click();
+	}
+	
+	public void JourneyBuilderListClick()
+	{
+	   WebElement JourneyBuildClick = driver.findElement(By.xpath("//a[@title=\"Journey Builder\"]//span[text()=\"Journey Builder\"]"));
+	   JourneyBuildClick.click();
+	   
+	   
+	}
+	
+	public void JourneySearch()
+	{
+		WebElement Search = driver.findElement(By.xpath("//*[@id=\"interactionList-search\"]/div[2]/input"));
+		Search.sendKeys("October");
+	}
+	
 
 }
