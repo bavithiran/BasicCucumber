@@ -36,10 +36,7 @@ public class MainActionFlow {
 	By signInButton = By.xpath("//*[@type=\"submit\"]");
 	By accountName = By.xpath("//a[@data-toggle='dropdown']");
 
-	// String UserId = "Qa Login";
-	// String Password = "Password6^";
-	// String NewName = "IPL 2020: Mahendra Singh Dhoni And Chennai Super Kings to
-	// Arrive in UAE Early For IPL 13";
+	
 
 	public MainActionFlow() {
 		//System.setProperty("webdriver.chrome.driver", "C://ChromeDriver_test//chromedriver.exe");
