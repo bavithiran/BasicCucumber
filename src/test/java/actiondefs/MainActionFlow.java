@@ -1,5 +1,9 @@
 package actiondefs;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -17,6 +21,8 @@ public class MainActionFlow {
 
 	public WebDriver driver;
 	public WebDriver driverForTesting;
+	Properties objectLocator;
+	FileInputStream objLocatorfile;
 	String testingUrl = "https://courses.ultimateqa.com/users/sign_in";
 
 	@FindBy(how = How.XPATH, using = "//*[@id=\"username\"]")
@@ -55,6 +61,23 @@ public class MainActionFlow {
 		WebDriverManager.chromedriver().setup();
 		driverForTesting = new ChromeDriver();
 		this.driverForTesting.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+		objectLocator = new Properties();
+		
+		try {
+			objLocatorfile = new FileInputStream(System.getProperty("user.dir")+"\\ObjectRepo.properties");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			objectLocator.load(objLocatorfile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String emailIDName = objectLocator.getProperty("web.login.username.xpath");
+		System.out.println(emailIDName);
 	}
 
 	public void qaBrowserLaunch() throws InterruptedException {
@@ -72,8 +95,8 @@ public class MainActionFlow {
 	}
 
 	public void qaEnterEmailID() {
-		driverForTesting.findElement(emailIDField).clear();
-		driverForTesting.findElement(emailIDField).sendKeys("bavithiranhardy14@gmail.com");
+		driverForTesting.findElement(By.xpath(objectLocator.getProperty("web.login.username.xpath"))).clear();
+		driverForTesting.findElement(By.xpath(objectLocator.getProperty("web.login.username.xpath"))).sendKeys("bavithiranhardy14@gmail.com");
 
 	}
 

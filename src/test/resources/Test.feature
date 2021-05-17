@@ -8,8 +8,8 @@ Feature: Ultimate Qa Testing feature
     When Wait time "5" in Seconds
     Then Enter Password
     When Wait time "5" in Seconds
-    Then Click SignIn
-    Then Verify AccountName
+    #Then Click SignIn
+    #Then Verify AccountName
 
     Examples:
       | UserName |
