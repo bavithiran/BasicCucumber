@@ -7,7 +7,8 @@ import cucumber.api.junit.Cucumber;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = {"src/test/resources/"},glue = {"stepdefs"})
+@CucumberOptions(features = { "src/test/resources/" }, glue = { "stepdefs" }, tags = { "@SmokeTest" }, plugin = {
+        "pretty" }, monochrome = true)
 
 public class RunCukesTest {
 
