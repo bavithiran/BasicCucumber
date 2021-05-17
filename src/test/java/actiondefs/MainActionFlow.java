@@ -36,10 +36,22 @@ public class MainActionFlow {
 	By signInButton = By.xpath("//*[@type=\"submit\"]");
 	By accountName = By.xpath("//a[@data-toggle='dropdown']");
 
-	
-
 	public MainActionFlow() {
-		//System.setProperty("webdriver.chrome.driver", "C://ChromeDriver_test//chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver",
+		// "C://ChromeDriver_test//chromedriver.exe");
+
+		// All the driver setup
+		//WebDriverManager.chromedriver().setup();
+		//WebDriverManager.firefoxdriver().setup();
+		//WebDriverManager.iedriver().setup();
+		//WebDriverManager.edgedriver().setup();
+		//WebDriverManager.operadriver().setup();
+		//WebDriverManager.phantomjs().setup();
+
+
+		// For using browser version
+		// WebDriverManager.chromedriver().driverVersion("85.0.4183.38").setup();
+
 		WebDriverManager.chromedriver().setup();
 		driverForTesting = new ChromeDriver();
 		this.driverForTesting.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -70,13 +82,13 @@ public class MainActionFlow {
 		driverForTesting.findElement(passwordField).sendKeys("Messi10!!");
 	}
 
-	public void qaClickSignInButton(){
+	public void qaClickSignInButton() {
 		driverForTesting.findElement(signInButton).click();
 	}
 
-	public void qaVerifyAccountName(){
+	public void qaVerifyAccountName() {
 		System.out.println(driverForTesting.findElement(signInButton).getText());
-		
+
 	}
 
 	public void Launch_Browser() throws InterruptedException {
@@ -84,7 +96,8 @@ public class MainActionFlow {
 		System.out.println("Launching Started .......... ");
 		// SS.sendMail();
 
-		//System.setProperty("webdriver.chrome.driver", "C://ChromeDriver_test//chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver",
+		// "C://ChromeDriver_test//chromedriver.exe");
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 
