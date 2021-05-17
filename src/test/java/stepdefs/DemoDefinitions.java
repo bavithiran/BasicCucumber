@@ -10,7 +10,35 @@ import cucumber.api.java.en.When;
 public class DemoDefinitions {
 
 	MainActionFlow MNF = new MainActionFlow();
+
+
 	
+	@Given("^Launch browser$") 
+	public void Launch_browser() throws InterruptedException{
+		MNF.qaBrowserLaunch();
+	}
+
+	@Then("^Enter EmailID$") 
+	public void Enter_EmailID(){
+		MNF.qaEnterEmailID();
+	}
+
+	@Then("^Enter Password$") 
+	public void Enter_Password(){
+		MNF.qaEnterPassword();
+
+	}
+
+	@Then("^Click SignIn$") 
+	public void Click_SignIn(){
+		MNF.qaClickSignInButton();
+
+	}
+
+	@Then("^Verify AccountName$") 
+	public void Verify_AccountName(){
+		MNF.qaVerifyAccountName();
+	}
 
 	@Given("^Launch chrome Browser for Salesforce Website$")
 	public void i_want_to_write_a_step_with_precondition() throws Exception {
