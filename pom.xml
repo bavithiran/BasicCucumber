@@ -11,12 +11,12 @@
 	</properties>
 
 	<developers>
-        <developer>
-            <id>Seleniumdev</id>
-            <name>BavithiranRamesh</name>
-            <email>bavithiranhardy14@gmail.com</email>
-        </developer>
-    </developers>
+		<developer>
+			<id>Seleniumdev</id>
+			<name>BavithiranRamesh</name>
+			<email>bavithiranhardy14@gmail.com</email>
+		</developer>
+	</developers>
 
 
 	<dependencies>
@@ -96,6 +96,21 @@
 			<artifactId>jaxb-core</artifactId>
 			<version>2.3.0.1</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+
 
 	</dependencies>
 
